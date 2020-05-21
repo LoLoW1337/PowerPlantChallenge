@@ -6,6 +6,6 @@ namespace Engie.Powerplant.Lorenzo.Business.Interfaces
 {
     public interface IProductionplanService
     {
-        Task<IList<Models.Powerplant>> CalculateUnitOfCommitment(Payload payload);
+        Task<IList<PowerplantModel>> CalculateUnitOfCommitment(IList<PowerplantModel> powerplants, int load, FuelsModel fuels);
     }
 }

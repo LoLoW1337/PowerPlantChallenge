@@ -9,9 +9,9 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
 {
     public class ProductionplanService : IProductionplanService
     {
-        public async Task<IList<Models.Powerplant>> CalculateUnitOfCommitment(Payload payload)
+        public Task<IList<PowerplantModel>> CalculateUnitOfCommitment(IList<PowerplantModel> powerplants, int load, FuelsModel fuels)
         {
-            return new List<Models.Powerplant>();
+            throw new NotImplementedException();
         }
     }
 }

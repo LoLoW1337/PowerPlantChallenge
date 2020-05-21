@@ -1,6 +1,6 @@
 ﻿namespace Engie.Powerplant.Lorenzo.Business.Models
 {
-    public class Fuels
+    public class FuelsModel
     {
         public decimal Gas { get; set; }
 

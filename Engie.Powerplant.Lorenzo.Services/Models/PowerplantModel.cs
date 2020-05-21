@@ -2,7 +2,7 @@
 
 namespace Engie.Powerplant.Lorenzo.Business.Models
 {
-    public class Powerplant
+    public class PowerplantModel
     {
         public string Name { get; set; }
         public PowerplantType Type { get; set; }
