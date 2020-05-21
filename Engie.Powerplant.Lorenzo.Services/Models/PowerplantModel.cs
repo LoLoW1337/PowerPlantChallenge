@@ -9,6 +9,6 @@ namespace Engie.Powerplant.Lorenzo.Business.Models
         public decimal Efficiency { get; set; }
         public int Pmin { get; set; }
         public int Pmax { get; set; }
-        public int P { get; set; }
+        public decimal P { get; set; }
     }
 }

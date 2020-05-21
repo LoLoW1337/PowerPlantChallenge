@@ -8,6 +8,6 @@
 
         public decimal Co2 { get; set; }
 
-        public int Wind { get; set; }
+        public decimal Wind { get; set; }
     }
 }
