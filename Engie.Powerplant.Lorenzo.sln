@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engie.Powerplant.Lorenzo", "Engie.Powerplant.Lorenzo\Engie.Powerplant.Lorenzo.csproj", "{43BCFE14-57AA-4490-A226-FF80D64C3780}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engie.Powerplant.Lorenzo.Business", "Engie.Powerplant.Lorenzo.Services\Engie.Powerplant.Lorenzo.Business.csproj", "{ADF27837-2EA0-4785-944F-4FDA6AE9002B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engie.Powerplant.lorenzo.Tests", "Engie.Powerplant.lorenzo.Tests\Engie.Powerplant.lorenzo.Tests.csproj", "{B5EF408B-414A-4904-AA80-9ADF4E9B9675}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{43BCFE14-57AA-4490-A226-FF80D64C3780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43BCFE14-57AA-4490-A226-FF80D64C3780}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43BCFE14-57AA-4490-A226-FF80D64C3780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF27837-2EA0-4785-944F-4FDA6AE9002B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF27837-2EA0-4785-944F-4FDA6AE9002B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF27837-2EA0-4785-944F-4FDA6AE9002B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF27837-2EA0-4785-944F-4FDA6AE9002B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5EF408B-414A-4904-AA80-9ADF4E9B9675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5EF408B-414A-4904-AA80-9ADF4E9B9675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5EF408B-414A-4904-AA80-9ADF4E9B9675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5EF408B-414A-4904-AA80-9ADF4E9B9675}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
