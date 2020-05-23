@@ -4,16 +4,25 @@ using Engie.Powerplant.Lorenzo.Business.Services;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Engie.Powerplant.lorenzo.Tests.Services
 {
     public class ProductionplanServiceTests
     {
+
+        private readonly ITestOutputHelper output;
+
+        public ProductionplanServiceTests(ITestOutputHelper output)
+        {
+            this.output = output;
+        }
+
         [Fact]
         public async void CalculateUnitOfCommitment_HappyFlow()
         {
             //Arrange
-            var powerplants = new List<PowerplantModel>();
+            var powerplants = GetPowerplantModels();
             var fuels = BuildFuels();
             var sut = new ProductionplanService();
             var load = 480;
@@ -24,9 +33,10 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
             //Assert
             foreach (var actualResult in actualResults)
             {
-                Assert.Equal(actualResult.P, ExpectedResult()
+                output.WriteLine($"{actualResult.Name} : {actualResult.P} power");
+                Assert.Equal(ExpectedResult()
                     .Where(x => x.Name == actualResult.Name)
-                    .Select(x => x.P).SingleOrDefault());
+                    .Select(x => x.P).SingleOrDefault(),actualResult.P);
             }
         }
 
@@ -107,7 +117,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                     Efficiency = 0.53m,
                     Pmin = 100,
                     Pmax = 460,
-                    P = 368.4m
+                    P = 368
                 },
                 new PowerplantModel
                 {
@@ -143,7 +153,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                     Efficiency = 1,
                     Pmin = 0,
                     Pmax = 150,
-                    P = 21.6m
+                    P = 90
                 },
                 new PowerplantModel
                 {
@@ -152,7 +162,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                     Efficiency = 1,
                     Pmin = 0,
                     Pmax = 36,
-                    P = 90
+                    P = 22
                 },
             };
         }
