@@ -2,7 +2,7 @@
 using Engie.Powerplant.Lorenzo.Business.Interfaces;
 using Engie.Powerplant.Lorenzo.Business.Services;
 
-namespace Engie.Powerplant.Lorenzo.Business.Core
+namespace Engie.Powerplant.Lorenzo.Business.Bootstrap
 {
     public static class BusinessDependencyLoader
     {

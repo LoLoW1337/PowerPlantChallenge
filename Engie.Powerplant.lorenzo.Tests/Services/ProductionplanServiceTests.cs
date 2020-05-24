@@ -31,12 +31,13 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
             var actualResults = await sut.CalculateUnitOfCommitment(powerplants, load, fuels);
 
             //Assert
+            Assert.Equal(load, actualResults.Sum(x => x.P));
             foreach (var actualResult in actualResults)
             {
                 output.WriteLine($"{actualResult.Name} : {actualResult.P} power");
                 Assert.Equal(ExpectedResult()
                     .Where(x => x.Name == actualResult.Name)
-                    .Select(x => x.P).SingleOrDefault(),actualResult.P);
+                    .Select(x => x.P).SingleOrDefault(), actualResult.P);
             }
         }
 

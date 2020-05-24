@@ -1,19 +1,20 @@
-﻿using System.Text.Json.Serialization;
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Engie.Powerplant.Lorenzo.Models
 {
     public class Fuels
     {
-        [JsonPropertyName("gas(euro/MWh)")]
+        [JsonProperty("gas(euro/MWh)")]
         public decimal Gas { get; set; }
 
-        [JsonPropertyName("kerosine(euro/MWh)")]
+        [JsonProperty("kerosine(euro/MWh)")]
         public decimal Kerosine { get; set; }
 
-        [JsonPropertyName("co2(euro/ton)")]
+        [JsonProperty("co2(euro/ton)")]
         public decimal Co2 { get; set; }
 
-        [JsonPropertyName("wind(%)")]
+        [JsonProperty("wind(%)")]
         public int Wind { get; set; }
     }
 }

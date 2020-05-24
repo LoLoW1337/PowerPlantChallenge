@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Mappers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Engie.Powerplant.Lorenzo.Services\Engie.Powerplant.Lorenzo.Business.csproj" />
   </ItemGroup>
 
