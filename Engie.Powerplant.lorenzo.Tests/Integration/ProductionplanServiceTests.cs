@@ -1,12 +1,15 @@
 ﻿using Engie.Powerplant.Lorenzo.Business.Enums;
+using Engie.Powerplant.Lorenzo.Business.Interfaces;
 using Engie.Powerplant.Lorenzo.Business.Models;
 using Engie.Powerplant.Lorenzo.Business.Services;
+using Moq;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Engie.Powerplant.lorenzo.Tests.Services
+namespace Engie.Powerplant.lorenzo.Tests.Integrations
 {
     public class ProductionplanServiceTests
     {
@@ -24,8 +27,14 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
             //Arrange
             var powerplants = GetPowerplantModels();
             var fuels = BuildFuels();
-            var sut = new ProductionplanService();
             var load = 480;
+
+            var mockMeritOrderService = new Mock<IMeritOrderService>();
+            mockMeritOrderService
+                .Setup(m => m.SetMeritOrder(powerplants, fuels))
+                .ReturnsAsync(powerplants.OrderBy(p => p.MeritOrder).ToList());
+
+            var sut = new ProductionplanService(mockMeritOrderService.Object);
 
             //Act
             var actualResults = await sut.CalculateUnitOfCommitment(powerplants, load, fuels);
@@ -63,6 +72,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                     Efficiency = 0.53m,
                     Pmin = 100,
                     Pmax = 460,
+                    MeritOrder = 3
                 },
                 new PowerplantModel
                 {
@@ -71,6 +81,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                      Efficiency = 0.53m,
                      Pmin = 100,
                      Pmax = 460,
+                     MeritOrder = 4
                  },
                 new PowerplantModel
                 {
@@ -79,6 +90,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                       Efficiency =  0.37m,
                       Pmin = 40,
                       Pmax = 210,
+                      MeritOrder = 5
                 },
                 new PowerplantModel
                 {
@@ -87,6 +99,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                     Efficiency = 0.3m,
                     Pmin = 0,
                     Pmax = 16,
+                    MeritOrder = 6
                 },
                 new PowerplantModel
                 {
@@ -95,6 +108,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                     Efficiency = 1,
                     Pmin = 0,
                     Pmax = 150,
+                    MeritOrder = 1
                 },
                 new PowerplantModel
                 {
@@ -103,6 +117,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Services
                     Efficiency = 1,
                     Pmin = 0,
                     Pmax = 36,
+                    MeritOrder = 2
                 },
             };
         }

@@ -9,6 +9,7 @@ namespace Engie.Powerplant.Lorenzo.Business.Bootstrap
         public static void LoadDependencies(IServiceCollection services)
         {
             services.AddSingleton<IProductionplanService, ProductionplanService>();
+            services.AddSingleton<IMeritOrderService, MeritOrderService>();
         }
     }
 }

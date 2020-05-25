@@ -1,8 +1,4 @@
 ﻿using Engie.Powerplant.Lorenzo.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Engie.Powerplant.Lorenzo.Models
 {

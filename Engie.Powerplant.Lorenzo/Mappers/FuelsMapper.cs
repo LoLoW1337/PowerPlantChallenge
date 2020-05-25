@@ -1,10 +1,7 @@
 ﻿using Engie.Powerplant.Lorenzo.Business.Models;
 using Engie.Powerplant.Lorenzo.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace Engie.Powerplant.Lorenzo.Mappers
 {

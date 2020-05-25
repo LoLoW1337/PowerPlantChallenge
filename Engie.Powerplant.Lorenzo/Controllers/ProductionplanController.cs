@@ -11,8 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Engie.Powerplant.Lorenzo.Controllers
 {
-    [Route("api/productionplan")]
     [ApiController]
+    [Route("api/productionplan")]
     public class ProductionplanController : ControllerBase
     {
         private readonly IProductionplanService productionplanService;
@@ -20,9 +20,15 @@ namespace Engie.Powerplant.Lorenzo.Controllers
         {
             this.productionplanService = productionplanService;
         }
+
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Payload payload)
         {
+            if (payload.Load == 0)
+                return BadRequest("Load should be greater than 0");
+            if (payload.Powerplants.Count == 0)
+                return BadRequest("No powerplant have been received");
+
             var powerplants = new List<PowerplantModel>();
             foreach (var p in payload.Powerplants)
             {

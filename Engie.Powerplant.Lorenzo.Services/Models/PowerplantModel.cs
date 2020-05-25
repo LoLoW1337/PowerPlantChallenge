@@ -11,6 +11,6 @@ namespace Engie.Powerplant.Lorenzo.Business.Models
         public int Pmax { get; set; }
         public int P { get; set; }
         public bool IsUsed { get; set; }
-        public int Priority { get; set; }
+        public int MeritOrder { get; set; }
     }
 }

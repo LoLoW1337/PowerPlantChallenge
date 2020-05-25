@@ -10,9 +10,16 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
 {
     public class ProductionplanService : IProductionplanService
     {
+        private readonly IMeritOrderService meritOrderService;
+
+        public ProductionplanService(IMeritOrderService meritOrderService)
+        {
+            this.meritOrderService = meritOrderService;
+        }
+
         public async Task<IList<PowerplantModel>> CalculateUnitOfCommitment(IList<PowerplantModel> powerplants, int load, FuelsModel fuels)
         {
-            var results = PrioritizePowerplantUsage(powerplants, fuels);
+            var results = await meritOrderService.SetMeritOrder(powerplants, fuels);
 
             foreach (var r in results)
             {
@@ -31,45 +38,6 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
             UpdateExpectedLoadRemaining(ref load, powerplant.P);
             powerplant.IsUsed = true;
 
-        }
-
-        private IList<PowerplantModel> PrioritizePowerplantUsage(IList<PowerplantModel> powerplants, FuelsModel fuels)
-        {
-            int priority = 1;
-            if (IsWindy(fuels))
-            {
-                SetPriority(powerplants, PowerplantType.Windturbine, priority);
-                priority++;
-            }
-            if (fuels.Gas < fuels.Kerosine)
-            {
-                SetPriority(powerplants, PowerplantType.Gasfired, priority);
-                priority++;
-                SetPriority(powerplants, PowerplantType.Turbojet, priority);
-                priority++;
-            }
-            else
-            {
-                SetPriority(powerplants, PowerplantType.Turbojet, priority);
-                priority++;
-                SetPriority(powerplants, PowerplantType.Gasfired, priority);
-                priority++;
-            }
-
-            return powerplants.OrderBy(x => x.Priority).ThenByDescending(x => x.Efficiency).ToList();
-        }
-
-        private void SetPriority(IList<PowerplantModel> powerplants, PowerplantType powerplantType, int priority)
-        {
-            foreach (var p in powerplants.Where(x => x.Type == powerplantType).OrderByDescending(x => x.Efficiency))
-            {
-                p.Priority = priority;
-            }
-        }
-
-        private bool IsWindy(FuelsModel fuels)
-        {
-            return fuels.Wind > 0;
         }
 
         private void UpdateExpectedLoadRemaining(ref int load, int powerGenerated)
