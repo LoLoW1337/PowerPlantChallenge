@@ -34,7 +34,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Integration
             foreach (var actualResult in actualResults)
             {
                 Assert.NotEqual(0, actualResult.MeritOrder);
-                output.WriteLine($"{actualResult.Name} : {actualResult.P} power");
+                output.WriteLine($"{actualResult.Name} : {actualResult.MeritOrder} position");
                 Assert.Equal(PowerplantFixture.ExpectedResult()
                     .Where(x => x.Name == actualResult.Name)
                     .Select(x => x.MeritOrder).SingleOrDefault(), actualResult.MeritOrder);
