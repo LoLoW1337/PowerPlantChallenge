@@ -36,7 +36,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Integration
                 .ReturnsAsync(powerplants.OrderBy(p => p.MeritOrder).ToList());
 
             var sut = new ProductionplanService(mockMeritOrderService.Object);
-            
+
             //Act
             var actualResults = await sut.CalculateUnitOfCommitment(powerplants, load, fuels);
 
@@ -51,6 +51,33 @@ namespace Engie.Powerplant.lorenzo.Tests.Integration
             }
         }
 
-             
+        [Theory]
+        [InlineData(400)]
+        [InlineData(800)]
+        [InlineData(256)]
+        [InlineData(810)]
+        [InlineData(333)]
+        [InlineData(456)]
+        [InlineData(140)]
+        [InlineData(600)]
+        public async void CalculateUnitOfCommitment_Sum_Of_Power_Should_Be_Equal_To_The_Load(int expectedLoad)
+        {
+            //Arrange
+            var powerplants = PowerplantFixture.GetPowerplantModels();
+            var fuels = PowerplantFixture.BuildFuels();
+
+            var mockMeritOrderService = new Mock<IMeritOrderService>();
+            mockMeritOrderService
+                .Setup(m => m.SetMeritOrder(powerplants, fuels))
+                .ReturnsAsync(powerplants.OrderBy(p => p.MeritOrder).ToList());
+
+            var sut = new ProductionplanService(mockMeritOrderService.Object);
+
+            //Act
+            var actualResults = await sut.CalculateUnitOfCommitment(powerplants, expectedLoad, fuels);
+
+            //Assert
+            Assert.Equal(expectedLoad, actualResults.Sum(x => x.P));         
+        }
     }
 }

@@ -23,18 +23,19 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
 
             foreach (var r in results)
             {
+                int numberOfSameTypePowerplants = results.Where(x => x.Type == r.Type).Count();
                 if (!r.IsUsed)
-                    UsePowerplant(r, fuels, ref load);
+                    UsePowerplant(r, fuels, ref load, numberOfSameTypePowerplants);
                 if (load == 0)
                     break;
             }
             return results;
         }
 
-        private void UsePowerplant(PowerplantModel powerplant, FuelsModel fuels, ref int load)
+        private void UsePowerplant(PowerplantModel powerplant, FuelsModel fuels, ref int load, int numberOfSameTypePowerplants)
         {
-            
-            powerplant.P = GetPowerGenerated(powerplant, fuels, load);
+
+            powerplant.P = GetPowerGenerated(powerplant, fuels, load, numberOfSameTypePowerplants);
             UpdateExpectedLoadRemaining(ref load, powerplant.P);
             powerplant.IsUsed = true;
 
@@ -45,7 +46,7 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
             load -= powerGenerated;
         }
 
-        private int GetPowerGenerated(PowerplantModel powerplant, FuelsModel fuels, int load)
+        private int GetPowerGenerated(PowerplantModel powerplant, FuelsModel fuels, int load, int numberOfSameTypePowerplants)
         {
             switch (powerplant.Type)
             {
@@ -54,13 +55,17 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
                 case PowerplantType.Turbojet:
                     if (powerplant.Pmin <= load && load <= powerplant.Pmax)
                         return load;
-                    else
+                    else if (load >= powerplant.Pmax && numberOfSameTypePowerplants == 1)
                         return powerplant.Pmax;
+                    else
+                        return load / 2;
                 case PowerplantType.Gasfired:
                     if (powerplant.Pmin <= load && load <= powerplant.Pmax)
                         return load;
-                    else
+                    else if (load >= powerplant.Pmax && numberOfSameTypePowerplants == 1)
                         return powerplant.Pmax;
+                    else
+                        return load / 2;
                 default:
                     throw new NotImplementedException();
             }
