@@ -9,9 +9,9 @@ namespace Engie.Powerplant.Lorenzo.Models
         public int P { get; set; }
 
         [JsonProperty("co2cost(€)")]
-        public decimal CO2Cost { get; internal set; }
+        public decimal CO2Cost { get; set; }
 
         [JsonProperty("cost(€)")]
-        public decimal Cost { get; internal set; }
+        public decimal Cost { get; set; }
     }
 }
