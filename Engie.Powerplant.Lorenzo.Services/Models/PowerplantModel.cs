@@ -12,5 +12,7 @@ namespace Engie.Powerplant.Lorenzo.Business.Models
         public int P { get; set; }
         public bool IsUsed { get; set; }
         public int MeritOrder { get; set; }
+        public decimal RunningCost { get; internal set; }
+        public decimal CO2CostEmission { get; internal set; }
     }
 }

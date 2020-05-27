@@ -11,10 +11,12 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
     public class ProductionplanService : IProductionplanService
     {
         private readonly IMeritOrderService meritOrderService;
+        private readonly IRunningCostService runningCostService;
 
-        public ProductionplanService(IMeritOrderService meritOrderService)
+        public ProductionplanService(IMeritOrderService meritOrderService, IRunningCostService runningCostService)
         {
             this.meritOrderService = meritOrderService;
+            this.runningCostService = runningCostService;
         }
 
         public async Task<IList<PowerplantModel>> CalculateUnitOfCommitment(IList<PowerplantModel> powerplants, int load, FuelsModel fuels)
@@ -29,6 +31,7 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
                 if (load == 0)
                     break;
             }
+
             return results;
         }
 
@@ -37,6 +40,8 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
 
             powerplant.P = GetPowerGenerated(powerplant, fuels, load, nextTypePowerplant);
             UpdateExpectedLoadRemaining(ref load, powerplant.P);
+            runningCostService.CalculateCO2EmissionCost(powerplant, fuels);
+            runningCostService.CalculateRunningCost(powerplant, fuels);
             powerplant.IsUsed = true;
 
         }

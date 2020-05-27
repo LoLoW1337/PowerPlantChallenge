@@ -10,6 +10,7 @@ namespace Engie.Powerplant.Lorenzo.Business.Bootstrap
         {
             services.AddSingleton<IProductionplanService, ProductionplanService>();
             services.AddSingleton<IMeritOrderService, MeritOrderService>();
+            services.AddSingleton<IRunningCostService, RunningCostService>();
         }
     }
 }

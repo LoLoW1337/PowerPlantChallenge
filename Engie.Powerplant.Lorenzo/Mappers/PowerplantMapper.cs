@@ -25,7 +25,9 @@ namespace Engie.Powerplant.Lorenzo.Mappers
             return powerplant => powerplant != null ? new Response
             {
                 Name = powerplant.Name,
-                P = powerplant.P
+                P = powerplant.P,
+                CO2Cost = powerplant.CO2CostEmission,
+                Cost = powerplant.RunningCost
             } : null;
         }
     }
