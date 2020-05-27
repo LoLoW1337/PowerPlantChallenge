@@ -1,0 +1,431 @@
+{
+  "Engie.Powerplant.Lorenzo.Business.dll": {
+    "C:\\Users\\loren\\source\\repos\\Engie.Powerplant.Lorenzo\\Engie.Powerplant.Lorenzo.Services\\Services\\MeritOrderService.cs": {
+      "Engie.Powerplant.Lorenzo.Business.Services.MeritOrderService": {
+        "System.Void Engie.Powerplant.Lorenzo.Business.Services.MeritOrderService::Set(System.Collections.Generic.IList`1<Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel>,Engie.Powerplant.Lorenzo.Business.Enums.PowerplantType,System.Int32&)": {
+          "Lines": {
+            "38": 3,
+            "39": 45,
+            "40": 6,
+            "41": 6,
+            "42": 6,
+            "43": 6,
+            "44": 3
+          },
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 23,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 39,
+              "Offset": 23,
+              "EndOffset": 47,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            },
+            {
+              "Line": 39,
+              "Offset": 126,
+              "EndOffset": 96,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 6
+            },
+            {
+              "Line": 39,
+              "Offset": 126,
+              "EndOffset": 128,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 3
+            }
+          ]
+        }
+      },
+      "Engie.Powerplant.Lorenzo.Business.Services.MeritOrderService/<>c": {
+        "System.Int32 Engie.Powerplant.Lorenzo.Business.Services.MeritOrderService/<>c::<SetMeritOrder>b__0_0(Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel)": {
+          "Lines": {
+            "30": 7
+          },
+          "Branches": []
+        }
+      },
+      "Engie.Powerplant.Lorenzo.Business.Services.MeritOrderService/<SetMeritOrder>d__0": {
+        "System.Void Engie.Powerplant.Lorenzo.Business.Services.MeritOrderService/<SetMeritOrder>d__0::MoveNext()": {
+          "Lines": {
+            "13": 1,
+            "14": 1,
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "18": 1,
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1,
+            "23": 1,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "31": 1
+          },
+          "Branches": [
+            {
+              "Line": 15,
+              "Offset": 143,
+              "EndOffset": 145,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 15,
+              "Offset": 143,
+              "EndOffset": 172,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 203,
+              "EndOffset": 205,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 203,
+              "EndOffset": 259,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      },
+      "Engie.Powerplant.Lorenzo.Business.Services.MeritOrderService/<IsWindy>d__1": {
+        "System.Void Engie.Powerplant.Lorenzo.Business.Services.MeritOrderService/<IsWindy>d__1::MoveNext()": {
+          "Lines": {
+            "33": 1,
+            "34": 1,
+            "35": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\loren\\source\\repos\\Engie.Powerplant.Lorenzo\\Engie.Powerplant.Lorenzo.Services\\Services\\ProductionplanService.cs": {
+      "Engie.Powerplant.Lorenzo.Business.Services.ProductionplanService": {
+        "System.Void Engie.Powerplant.Lorenzo.Business.Services.ProductionplanService::UsePowerplant(Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel,Engie.Powerplant.Lorenzo.Business.Models.FuelsModel,System.Int32&)": {
+          "Lines": {
+            "35": 3,
+            "37": 3,
+            "38": 3,
+            "39": 3,
+            "41": 3
+          },
+          "Branches": []
+        },
+        "System.Void Engie.Powerplant.Lorenzo.Business.Services.ProductionplanService::UpdateExpectedLoadRemaining(System.Int32&,System.Int32)": {
+          "Lines": {
+            "44": 3,
+            "45": 3,
+            "46": 3
+          },
+          "Branches": []
+        },
+        "System.Int32 Engie.Powerplant.Lorenzo.Business.Services.ProductionplanService::GetPowerGenerated(Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel,Engie.Powerplant.Lorenzo.Business.Models.FuelsModel,System.Int32)": {
+          "Lines": {
+            "49": 3,
+            "50": 3,
+            "53": 2,
+            "55": 0,
+            "56": 0,
+            "58": 0,
+            "60": 1,
+            "61": 1,
+            "63": 0,
+            "65": 0,
+            "67": 3
+          },
+          "Branches": [
+            {
+              "Line": 50,
+              "Offset": 11,
+              "EndOffset": 33,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 50,
+              "Offset": 11,
+              "EndOffset": 91,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 55,
+              "Offset": 98,
+              "EndOffset": 100,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 55,
+              "Offset": 98,
+              "EndOffset": 114,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 55,
+              "Offset": 117,
+              "EndOffset": 119,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 55,
+              "Offset": 117,
+              "EndOffset": 123,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 50,
+              "Offset": 11,
+              "EndOffset": 132,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 60,
+              "Offset": 139,
+              "EndOffset": 141,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 1
+            },
+            {
+              "Line": 60,
+              "Offset": 139,
+              "EndOffset": 155,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 160,
+              "EndOffset": 162,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 1
+            },
+            {
+              "Line": 60,
+              "Offset": 160,
+              "EndOffset": 166,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 50,
+              "Offset": 11,
+              "EndOffset": 175,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Engie.Powerplant.Lorenzo.Business.Services.ProductionplanService::.ctor(Engie.Powerplant.Lorenzo.Business.Interfaces.IMeritOrderService)": {
+          "Lines": {
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "18": 1
+          },
+          "Branches": []
+        }
+      },
+      "Engie.Powerplant.Lorenzo.Business.Services.ProductionplanService/<CalculateUnitOfCommitment>d__2": {
+        "System.Void Engie.Powerplant.Lorenzo.Business.Services.ProductionplanService/<CalculateUnitOfCommitment>d__2::MoveNext()": {
+          "Lines": {
+            "21": 1,
+            "22": 1,
+            "24": 8,
+            "25": 3,
+            "26": 3,
+            "27": 3,
+            "28": 3,
+            "29": 1,
+            "30": 2,
+            "31": 1,
+            "32": 1
+          },
+          "Branches": [
+            {
+              "Line": 24,
+              "Offset": 281,
+              "EndOffset": 177,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 3
+            },
+            {
+              "Line": 26,
+              "Offset": 213,
+              "EndOffset": 215,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 26,
+              "Offset": 213,
+              "EndOffset": 245,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            },
+            {
+              "Line": 28,
+              "Offset": 258,
+              "EndOffset": 262,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 2
+            },
+            {
+              "Line": 28,
+              "Offset": 258,
+              "EndOffset": 283,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 24,
+              "Offset": 281,
+              "EndOffset": 283,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\loren\\source\\repos\\Engie.Powerplant.Lorenzo\\Engie.Powerplant.Lorenzo.Services\\Models\\FuelsModel.cs": {
+      "Engie.Powerplant.Lorenzo.Business.Models.FuelsModel": {
+        "System.Decimal Engie.Powerplant.Lorenzo.Business.Models.FuelsModel::get_Gas()": {
+          "Lines": {
+            "5": 3
+          },
+          "Branches": []
+        },
+        "System.Decimal Engie.Powerplant.Lorenzo.Business.Models.FuelsModel::get_Kerosine()": {
+          "Lines": {
+            "7": 3
+          },
+          "Branches": []
+        },
+        "System.Decimal Engie.Powerplant.Lorenzo.Business.Models.FuelsModel::get_Co2()": {
+          "Lines": {
+            "9": 0
+          },
+          "Branches": []
+        },
+        "System.Decimal Engie.Powerplant.Lorenzo.Business.Models.FuelsModel::get_Wind()": {
+          "Lines": {
+            "11": 5
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\loren\\source\\repos\\Engie.Powerplant.Lorenzo\\Engie.Powerplant.Lorenzo.Services\\Models\\PowerplantModel.cs": {
+      "Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel": {
+        "System.String Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel::get_Name()": {
+          "Lines": {
+            "7": 240
+          },
+          "Branches": []
+        },
+        "Engie.Powerplant.Lorenzo.Business.Enums.PowerplantType Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel::get_Type()": {
+          "Lines": {
+            "8": 105
+          },
+          "Branches": []
+        },
+        "System.Decimal Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel::get_Efficiency()": {
+          "Lines": {
+            "9": 92
+          },
+          "Branches": []
+        },
+        "System.Int32 Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel::get_Pmin()": {
+          "Lines": {
+            "10": 85
+          },
+          "Branches": []
+        },
+        "System.Int32 Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel::get_Pmax()": {
+          "Lines": {
+            "11": 87
+          },
+          "Branches": []
+        },
+        "System.Int32 Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel::get_P()": {
+          "Lines": {
+            "12": 108
+          },
+          "Branches": []
+        },
+        "System.Boolean Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel::get_IsUsed()": {
+          "Lines": {
+            "13": 6
+          },
+          "Branches": []
+        },
+        "System.Int32 Engie.Powerplant.Lorenzo.Business.Models.PowerplantModel::get_MeritOrder()": {
+          "Lines": {
+            "14": 120
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\loren\\source\\repos\\Engie.Powerplant.Lorenzo\\Engie.Powerplant.Lorenzo.Services\\Bootstrap\\BusinessDependencyLoader.cs": {
+      "Engie.Powerplant.Lorenzo.Business.Bootstrap.BusinessDependencyLoader": {
+        "System.Void Engie.Powerplant.Lorenzo.Business.Bootstrap.BusinessDependencyLoader::LoadDependencies(Microsoft.Extensions.DependencyInjection.IServiceCollection)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
