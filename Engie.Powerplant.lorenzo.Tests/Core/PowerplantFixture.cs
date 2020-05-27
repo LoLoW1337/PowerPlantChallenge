@@ -1,8 +1,6 @@
 ﻿using Engie.Powerplant.Lorenzo.Business.Enums;
 using Engie.Powerplant.Lorenzo.Business.Models;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Engie.Powerplant.lorenzo.Tests.Core
 {

@@ -1,12 +1,8 @@
 ﻿using Engie.Powerplant.lorenzo.Tests.Core;
-using Engie.Powerplant.Lorenzo.Business.Enums;
 using Engie.Powerplant.Lorenzo.Business.Interfaces;
-using Engie.Powerplant.Lorenzo.Business.Models;
 using Engie.Powerplant.Lorenzo.Business.Services;
 using Moq;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -57,7 +53,15 @@ namespace Engie.Powerplant.lorenzo.Tests.Integration
         [InlineData(256)]
         [InlineData(333)]
         [InlineData(456)]
-        [InlineData(600)]
+        [InlineData(562)]
+        [InlineData(541)]
+        [InlineData(741)]
+        [InlineData(895)]
+        [InlineData(985)]
+        [InlineData(123)]
+        [InlineData(337)]
+        [InlineData(521)]
+        [InlineData(444)]
         public async void CalculateUnitOfCommitment_Sum_Of_Power_Should_Be_Equal_To_The_Load(int expectedLoad)
         {
             //Arrange
