@@ -23,19 +23,19 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
 
             foreach (var r in results)
             {
-                int numberOfSameTypePowerplants = results.Where(x => x.Type == r.Type).Count();
+                var sameTypePowerplants = results.Where(x => x.Type == r.Type && !r.IsUsed).ToList();
                 if (!r.IsUsed)
-                    UsePowerplant(r, fuels, ref load, numberOfSameTypePowerplants);
+                    UsePowerplant(r, fuels, ref load, sameTypePowerplants);
                 if (load == 0)
                     break;
             }
             return results;
         }
 
-        private void UsePowerplant(PowerplantModel powerplant, FuelsModel fuels, ref int load, int numberOfSameTypePowerplants)
+        private void UsePowerplant(PowerplantModel powerplant, FuelsModel fuels, ref int load, IList<PowerplantModel> sameTypePowerplants)
         {
 
-            powerplant.P = GetPowerGenerated(powerplant, fuels, load, numberOfSameTypePowerplants);
+            powerplant.P = GetPowerGenerated(powerplant, fuels, load, sameTypePowerplants);
             UpdateExpectedLoadRemaining(ref load, powerplant.P);
             powerplant.IsUsed = true;
 
@@ -46,29 +46,36 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
             load -= powerGenerated;
         }
 
-        private int GetPowerGenerated(PowerplantModel powerplant, FuelsModel fuels, int load, int numberOfSameTypePowerplants)
+        private int GetPowerGenerated(PowerplantModel powerplant, FuelsModel fuels, int load, IList<PowerplantModel> sameTypePowerplants)
         {
             switch (powerplant.Type)
             {
                 case PowerplantType.Windturbine:
                     return (int)Math.Round(powerplant.Efficiency * powerplant.Pmax * (fuels.Wind / 100));
                 case PowerplantType.Turbojet:
-                    if (powerplant.Pmin <= load && load <= powerplant.Pmax)
-                        return load;
-                    else if (load >= powerplant.Pmax && numberOfSameTypePowerplants == 1)
-                        return powerplant.Pmax;
-                    else
-                        return load / 2;
+                    return GenratePower(powerplant, load, sameTypePowerplants);
                 case PowerplantType.Gasfired:
-                    if (powerplant.Pmin <= load && load <= powerplant.Pmax)
-                        return load;
-                    else if (load >= powerplant.Pmax && numberOfSameTypePowerplants == 1)
-                        return powerplant.Pmax;
-                    else
-                        return load / 2;
+                    return GenratePower(powerplant, load, sameTypePowerplants);
                 default:
                     throw new NotImplementedException();
             }
+        }
+
+        private int GenratePower(PowerplantModel powerplant, int load, IList<PowerplantModel> sameTypePowerplants)
+        {
+            if (load < powerplant.Pmin)
+                return 0;
+            if (load > powerplant.Pmax)
+            {
+                if (powerplant.Pmax + sameTypePowerplants.Sum(p => p.Pmin) <= load)
+                    return powerplant.Pmax;
+                else
+                    return load / sameTypePowerplants.Count;
+            }
+            else if (powerplant.Pmin <= load && load <= powerplant.Pmax)
+                return load;
+
+            return 0;
         }
     }
 }

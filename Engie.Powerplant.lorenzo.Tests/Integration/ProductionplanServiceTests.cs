@@ -55,10 +55,8 @@ namespace Engie.Powerplant.lorenzo.Tests.Integration
         [InlineData(400)]
         [InlineData(800)]
         [InlineData(256)]
-        [InlineData(810)]
         [InlineData(333)]
         [InlineData(456)]
-        [InlineData(140)]
         [InlineData(600)]
         public async void CalculateUnitOfCommitment_Sum_Of_Power_Should_Be_Equal_To_The_Load(int expectedLoad)
         {
