@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Engie.Powerplant.lorenzo.Tests.Integrations
+namespace Engie.Powerplant.lorenzo.Tests.Integration
 {
     public class ProductionplanServiceTests
     {
