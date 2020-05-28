@@ -26,8 +26,8 @@ namespace Engie.Powerplant.Lorenzo.Mappers
             {
                 Name = powerplant.Name,
                 P = powerplant.P,
-                CO2Cost = Math.Round(powerplant.CO2CostEmission, 2),
-                Cost = Math.Round(powerplant.RunningCost, 2)
+                CO2Cost = powerplant.CO2CostEmission,
+                Cost = powerplant.RunningCost
             } : null;
         }
     }

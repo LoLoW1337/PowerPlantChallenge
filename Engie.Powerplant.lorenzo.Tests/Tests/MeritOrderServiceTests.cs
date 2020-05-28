@@ -7,7 +7,7 @@ using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Engie.Powerplant.lorenzo.Tests.Integration
+namespace Engie.Powerplant.lorenzo.Tests.Tests
 {
     public class MeritOrderServiceTests
     {
