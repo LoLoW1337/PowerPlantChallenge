@@ -8,7 +8,7 @@ namespace Engie.Powerplant.Lorenzo.Mappers
 {
     public class PowerplantMapper
     {
-        internal static Expression<Func<Models.Powerplant,PowerplantModel>> MapPowerplantToDomain()
+        internal static Expression<Func<Models.Powerplant, PowerplantModel>> MapPowerplantToDomain()
         {
             return powerplant => powerplant != null ? new PowerplantModel
             {
@@ -26,8 +26,8 @@ namespace Engie.Powerplant.Lorenzo.Mappers
             {
                 Name = powerplant.Name,
                 P = powerplant.P,
-                CO2Cost = powerplant.CO2CostEmission,
-                Cost = powerplant.RunningCost
+                CO2Cost = Math.Round(powerplant.CO2CostEmission, 2),
+                Cost = Math.Round(powerplant.RunningCost, 2)
             } : null;
         }
     }

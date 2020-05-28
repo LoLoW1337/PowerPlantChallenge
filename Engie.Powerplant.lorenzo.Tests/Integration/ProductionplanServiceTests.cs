@@ -1,7 +1,10 @@
 ﻿using Engie.Powerplant.lorenzo.Tests.Core;
 using Engie.Powerplant.Lorenzo.Business.Interfaces;
+using Engie.Powerplant.Lorenzo.Business.Models;
 using Engie.Powerplant.Lorenzo.Business.Services;
 using Moq;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
@@ -26,12 +29,7 @@ namespace Engie.Powerplant.lorenzo.Tests.Integration
             var fuels = PowerplantFixture.BuildFuels();
             var load = 480;
 
-            var mockMeritOrderService = new Mock<IMeritOrderService>();
-            mockMeritOrderService
-                .Setup(m => m.SetMeritOrder(powerplants, fuels))
-                .ReturnsAsync(powerplants.OrderBy(p => p.MeritOrder).ToList());
-
-            var sut = new ProductionplanService(mockMeritOrderService.Object);
+            var sut = MakeSut(powerplants, fuels);
 
             //Act
             var actualResults = await sut.CalculateUnitOfCommitment(powerplants, load, fuels);
@@ -67,19 +65,27 @@ namespace Engie.Powerplant.lorenzo.Tests.Integration
             //Arrange
             var powerplants = PowerplantFixture.GetPowerplantModels();
             var fuels = PowerplantFixture.BuildFuels();
+       
 
-            var mockMeritOrderService = new Mock<IMeritOrderService>();
-            mockMeritOrderService
-                .Setup(m => m.SetMeritOrder(powerplants, fuels))
-                .ReturnsAsync(powerplants.OrderBy(p => p.MeritOrder).ToList());
-
-            var sut = new ProductionplanService(mockMeritOrderService.Object);
+            var sut = MakeSut(powerplants, fuels);
 
             //Act
             var actualResults = await sut.CalculateUnitOfCommitment(powerplants, expectedLoad, fuels);
 
             //Assert
             Assert.Equal(expectedLoad, actualResults.Sum(x => x.P));         
+        }
+
+        private ProductionplanService MakeSut(IList<PowerplantModel> powerplants, FuelsModel fuels)
+        {
+            var mockRunningCostService = new Mock<IRunningCostService>();
+
+            var mockMeritOrderService = new Mock<IMeritOrderService>();
+            mockMeritOrderService
+                .Setup(m => m.SetMeritOrder(powerplants, fuels))
+                .ReturnsAsync(powerplants.OrderBy(p => p.MeritOrder).ToList());
+
+            return new ProductionplanService(mockMeritOrderService.Object, mockRunningCostService.Object);
         }
     }
 }

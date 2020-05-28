@@ -14,8 +14,11 @@ namespace Engie.Powerplant.Lorenzo.Business.Services
         public void CalculateRunningCost(PowerplantModel powerplant, FuelsModel fuels)
         {
             if (powerplant.Type != Enums.PowerplantType.Windturbine)
-                powerplant.RunningCost = powerplant.CO2CostEmission 
-                    + (powerplant.P * ((powerplant.Type == Enums.PowerplantType.Gasfired) ? fuels.Gas : fuels.Kerosine));
+                powerplant.RunningCost = powerplant.CO2CostEmission
+                    + (
+                        (powerplant.P / powerplant.Efficiency) 
+                        * ((powerplant.Type == Enums.PowerplantType.Gasfired) ? fuels.Gas : fuels.Kerosine)
+                    );
         }
     }
 }
